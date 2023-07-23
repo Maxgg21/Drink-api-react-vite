@@ -1,10 +1,11 @@
 import MainLayout from "./loyaut";
+import AppRoutes from "./routes";
 
 function App() {
   return (
     <>
       <MainLayout>
-      <h1>App</h1>
+        <AppRoutes/>
       </MainLayout>
     </>
   )
