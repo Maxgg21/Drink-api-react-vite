@@ -5,11 +5,11 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const getRecipeService = async (drinkId) => {
     try {
         const url = `${apiUrl}lookup.php?i=${drinkId}`;
-        const { data } = axios.get(url);
+        const { data } = await axios.get(url); 
         return data.drinks[0];
     } catch (error) {
         console.error(error);
-        throw new Error('Hubo un error al obtener la receta')
+        throw new Error('Hubo un error al obtener la receta');
     }
 };
 
