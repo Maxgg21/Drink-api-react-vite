@@ -41,7 +41,7 @@ const DrinksProvider = ({children}) => {
             const drinksWithPrice = drinkData.map((drink)=>{
                 return {
                     ...drink,
-                    price: Math.floor(Math.random() * 1001) 
+                    price: Math.floor(Math.random() * 101) 
                 }
             })
             setDrinks(drinksWithPrice);
