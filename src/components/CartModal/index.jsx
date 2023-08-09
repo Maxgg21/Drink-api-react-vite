@@ -5,13 +5,12 @@ import useModal from '../../hooks/useModal';
 
 
 export default function CartModal() {
-  const { isOpen, toogleModal} = useModal();
-
-
+  const {isOpen, toogleModal} = useModal()
+  if (isOpen) 
   return (
     <div className={styles.modalBg}>
       <div className={styles.modal}>
-      <FontAwesomeIcon icon={faXmarkCircle} className={styles.icon} />
+      <FontAwesomeIcon icon={faXmarkCircle} className={styles.icon} onClick={() => toogleModal()}/>
         <h2>Mi Carrito</h2>
         <section className={styles.modalBody}>
           <div className={styles.modalDrinksListContainer}>
@@ -20,7 +19,7 @@ export default function CartModal() {
               <span>Nombre</span>
               <span>Precio</span>
               <div className={styles.counter}>
-                <button>-</button>
+                <button>+</button>
                 <span>7</span>
                 <button>-</button>
               </div>
