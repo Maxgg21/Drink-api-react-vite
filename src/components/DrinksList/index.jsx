@@ -1,6 +1,6 @@
 import { Row } from 'react-bootstrap';
 import {useDrinks} from '../../hooks/useDrinks';
-import {DrinkCard} from '../DrinkCard';
+import DrinkCard from '../DrinkCard';
 
 export default function DrinksList () {
     const { drinks } = useDrinks();
@@ -17,7 +17,8 @@ export default function DrinksList () {
             {
                 drinks.map((drink) => (
                     <DrinkCard
-                        key={drink.isDrink}
+                        
+                        key={drink.idDrink}
                         drink={drink}
                     />
                 ))

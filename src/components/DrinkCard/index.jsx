@@ -1,16 +1,15 @@
 import { Col, Card, Button, Row } from "react-bootstrap";
 import { useDrinks } from "../../hooks/useDrinks";
 import PropTypes from "prop-types";
-import { useCart } from "../../hooks/useCart";
+import useCart  from "../../hooks/useCart";
 
-export function DrinkCard({ drink }) {
+export default function DrinkCard({ drink }) {
   const { handleModalClick, handleDrinkIdClick } = useDrinks();
   const {addToCart} = useCart();
 
   function handleAddToCart (drink) {
     addToCart(drink)
   }
-
 
   return (
     <Col md={6} lg={3}>

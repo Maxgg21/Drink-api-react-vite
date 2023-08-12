@@ -1,19 +1,19 @@
 import { actionTypes } from "../actions/cart.actions";
+
 export const cartInitialState = {
     cartItems: [],
- };
+};
 
-
-export function cartReducer(state, { type, payload }) {
+export function cartReducer(state, { type, payload = {} }) {
     const { idDrink } = payload;
-    let drinkIsInCart = state.cartItems.find((item) => item.idDrink === idDrink);
+    let drinkInCart = state.cartItems.find((item) => item.idDrink === idDrink);
     switch (type) {
       case actionTypes.ADD_TO_CART:
-        if (drinkIsInCart) {
-          let cartItemsUpDated = state.cartItems.map((item) => {
+        if (drinkInCart) {
+          let cartItemsUpDated = state.cartItems.map(item => {
             if (item.idDrink === idDrink) {
               return {
-                item,
+                ...item,
                 quantity: item.quantity + 1,
               };
             }
@@ -31,7 +31,7 @@ export function cartReducer(state, { type, payload }) {
           };
         }
       case actionTypes.REMOVE_ONE_FROM_CART:
-        if (drinkIsInCart.quantity > 1) {
+        if (drinkInCart.quantity >= 1) {
           let cartItemUpDated = state.cartItems.map((item) => {
             if (item.idDrink === idDrink) {
               // Quantity > 1 ? => restar 1
@@ -47,7 +47,7 @@ export function cartReducer(state, { type, payload }) {
             cartItems: cartItemUpDated,
           };
         } else {
-          if (drinkIsInCart) {
+          if (drinkInCart) {
             let cartItemUpDated = state.cartItems.filter((item) => {
               item.drink !== idDrink;
             });
@@ -58,7 +58,7 @@ export function cartReducer(state, { type, payload }) {
           }
         }
       case actionTypes.REMOVE_ALL_FROM_CART:
-        if (drinkIsInCart) {
+        if (drinkInCart) {
           let cartItemsUpdated = state.cartItems.filter(item => item.idDrink !== idDrink);
           return {
             ...state,

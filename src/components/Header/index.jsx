@@ -5,7 +5,7 @@ import useModal from "../../hooks/useModal";
 
 
 export default function header() {
-  const {toogleModal} = useModal()
+  const {toogleModal} = useModal();
 
   return (
     <header className={`p-5 ${styles.header}`}>

@@ -3,12 +3,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "./MainLayout.module.css";
 import PropTypes from 'prop-types';
-import CartModal from '../components/cartModal';
+import CartModal from '../components/CartModal';
 
 
 export default function MainLayout({ children }) {
   return (
-    <div className={styles.main}>
+    <div className={styles.main} >
       <Header />
       <Container className='mp-5'>{children}</Container>
       <CartModal/>

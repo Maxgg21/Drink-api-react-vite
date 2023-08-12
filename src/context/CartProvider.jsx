@@ -12,12 +12,12 @@ function CartProvider({ children }) {
     dispatch({ type: actionTypes.ADD_TO_CART, payload: drink });
   }
 
-  function removeOneFromCart(drinkId) {
-    dispatch({ type: actionTypes.REMOVE_ONE_FROM_CART, payload: drinkId });
+  function removeOneFromCart(idDrink) {
+  dispatch({ type: actionTypes.REMOVE_ONE_FROM_CART, payload: {idDrink} });
   }
 
-  function removeAllFromCart(drinkId) {
-    dispatch({ type: actionTypes.REMOVE_ALL_FROM_CART, payload: drinkId });
+  function removeAllFromCart(idDrink) {
+    dispatch({ type: actionTypes.REMOVE_ALL_FROM_CART, payload: {idDrink} });
   }
 
   function clearCart() {
@@ -31,7 +31,6 @@ function CartProvider({ children }) {
     removeAllFromCart,
     clearCart,
   };
-
   return (
     <CartContext.Provider value={cartValues}>{children}</CartContext.Provider>
   );
