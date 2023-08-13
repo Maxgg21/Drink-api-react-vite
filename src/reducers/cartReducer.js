@@ -31,7 +31,7 @@ export function cartReducer(state, { type, payload = {} }) {
           };
         }
       case actionTypes.REMOVE_ONE_FROM_CART:
-        if (drinkInCart.quantity >= 1) {
+        if (drinkInCart.quantity > 1) {
           let cartItemUpDated = state.cartItems.map((item) => {
             if (item.idDrink === idDrink) {
               // Quantity > 1 ? => restar 1
@@ -47,24 +47,23 @@ export function cartReducer(state, { type, payload = {} }) {
             cartItems: cartItemUpDated,
           };
         } else {
-          if (drinkInCart) {
             let cartItemUpDated = state.cartItems.filter((item) => {
-              item.drink !== idDrink;
+              return item.idDrink !== idDrink;
             });
             return {
               ...state,
               cartItems: cartItemUpDated,
             };
-          }
         }
       case actionTypes.REMOVE_ALL_FROM_CART:
         if (drinkInCart) {
-          let cartItemsUpdated = state.cartItems.filter(item => item.idDrink !== idDrink);
+          let cartItemsUpdated = state.cartItems.filter(item => { return item.idDrink !== idDrink});
           return {
             ...state,
             cartItems: cartItemsUpdated,
           };
         }
+        return state;
       case actionTypes.CLEAR_CART:
         return {
           ...state,
