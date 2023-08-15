@@ -48,7 +48,7 @@ export function cartReducer(state, { type, payload = {} }) {
           };
         } else {
             let cartItemUpDated = state.cartItems.filter((item) => {
-              return item.idDrink !== idDrink;
+              item.idDrink !== idDrink;
             });
             return {
               ...state,

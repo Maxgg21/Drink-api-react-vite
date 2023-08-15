@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faTrashAlt, faXmarkCircle} from '@fortawesome/free-regular-svg-icons'
+import { faXmarkCircle} from '@fortawesome/free-regular-svg-icons'
 import styles from "./CartModal.module.css";
 import useModal from '../../hooks/useModal';
 import useCart  from '../../hooks/useCart';
@@ -10,7 +10,9 @@ export  default function CartModal() {
   const {isOpen, toogleModal} = useModal()
   const {
     cart,  
-    clearCart
+    clearCart,
+    sendOrder,
+    orderTotal
   } = useCart()
   if (isOpen) return (
     <div className={styles.modalBg}>
@@ -28,11 +30,10 @@ export  default function CartModal() {
             
           </div>
           <aside>
-            <p>SubTotal: xxxxx</p>
-            <p>Total: xxxxx</p>
+            <p>Total: {orderTotal}</p>
             <div className={styles.btnContainer}>
               <button className={styles.clearCart} onClick={() => clearCart()}>Vaciar carrito</button>
-              <button className={styles.confirmOrder}>Confirmar compra</button>
+              <button className={styles.confirmOrder} onClick={sendOrder}>Confirmar compra</button>
             </div>
           </aside>
         </section>

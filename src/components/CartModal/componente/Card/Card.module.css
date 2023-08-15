@@ -1,34 +1,3 @@
-.modalBg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background:  rgba(0, 0, 0, 0.2);
-    min-height: 100vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modalBg .modal{
-    background-color: white;
-    min-width: 600px;
-    border-radius: 8px;
-    padding: 1rem;    
-}
-
-.modalBg .icon {
-    color: grey;
-    font-size: 1.5rem;
-    cursor: pointer;
-    float: right;
-}
-
-.modalBody {
-    display: grid;
-    grid-template-columns: 75% 25%;
-
-}
 
 .card {
     display: flex;
@@ -73,32 +42,4 @@
 .card .iconTrash {
     color: red;
     cursor: pointer;
-}
-
-.btnContainer {
-    display: flex;
-    flex-direction: column ;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.btnContainer button {
- 
-    border: none;
-    text-transform: uppercase;
-    font-size: .8rem;
-    font-weight: 600;
-    padding: 4px;
-    border-radius: 8px;
-    margin: 8px;
-    width: 100%;
-}
-
-.btnContainer button .clearCart {
-    background-color: lightblue;
-    color: grey;
-}
-.btnContainer button .confirmOrder {
-    background-color: rgb(from red 50 80 255);
-    color: grey;
 }

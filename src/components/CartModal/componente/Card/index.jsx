@@ -8,7 +8,7 @@ export default function Card({ drink }) {
     const { addToCart, removeOneFromCart, removeAllFromCart } = useCart();
     return (
         <article className={styles.card}>
-            <img src={drink.strDrinkThumb} alt="" />
+            <img src={drink.strDrinkThumb} alt={drink.strDrink} />
             <span>{drink.strDrink}</span>
             <span>{drink.price}</span>
             <div className={styles.counter}>
